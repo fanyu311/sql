@@ -33,7 +33,7 @@ if( isset($_GET["ville"]) && !empty($_GET["ville"]) ){
     // set the PDO error mode to exception
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     //echo "Connected successfully";
-    $query = "SELECT ville_nom FROM villes_france_free LIMIT 12";
+    $query = "SELECT * FROM villes_france_free WHERE ville_nom LIKE '%ville%'";
     $stmt = $conn->prepare($query);
     $stmt->execute();
    // set the resulting array to associative
@@ -41,7 +41,14 @@ if( isset($_GET["ville"]) && !empty($_GET["ville"]) ){
 
     foreach($result as $k=>$v){
     
-    echo "<p>" . $v["ville_nom"]. "</p>";
+    echo "<p>";
+    echo "<ul>";
+    echo "<li> Nom de ville" . $v["ville_nom_reel"] . "</li>\n";
+    echo "<li> Code postal" . $v["ville_code_postal"] . "</li>\n";
+    echo "<li> Population 2012" . $v["ville_population_2012"] . "</li>\n";
+    echo "</ul>";
+    echo "</p>";
+    
    }
 //    echo "<pre>";
 //    var_dump($result);
