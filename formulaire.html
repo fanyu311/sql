@@ -9,15 +9,22 @@
     <style>
         body {
             font-family: Verdana, Geneva, Tahoma, sans-serif;
+            background-image: linear-gradient(180deg, white, rgb(72, 72, 143));
         }
 
         label,
         input,
-        textarea {
+        textarea,
+        select {
             display: block;
-            margin: 5px;
-            width: 90%;
-            box-sizing: content-box;
+            padding: 5px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        input:invalid,
+        select:invalid {
+            border: 2px red solid;
         }
     </style>
 </head>
